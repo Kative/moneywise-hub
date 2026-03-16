@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://moneywise-hub.github.io/sitemap.xml
+
+# MoneyWise Hub
+# Free personal finance tools and guides

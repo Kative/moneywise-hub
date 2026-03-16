@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Emergency Fund Calculator — MoneyWise Hub</title>
+  <meta name="description" content="Free emergency fund calculator. Find out exactly how much you need saved and how long it will take to build your safety net. No signup required.">
+  <meta property="og:title" content="Free Emergency Fund Calculator — MoneyWise Hub">
+  <meta property="og:description" content="Calculate your emergency fund target and see how fast you can reach it.">
+  <link rel="canonical" href="https://moneywise-hub.github.io/tools/savings-calculator.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Emergency Fund Calculator",
+    "url": "https://moneywise-hub.github.io/tools/savings-calculator.html",
+    "description": "Free emergency fund calculator. Find your target amount and see how long it takes to build your financial safety net.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="sr-only">Skip to main content</a>
+  <nav class="nav" id="navbar">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo"><div class="nav__logo-icon">💰</div><div class="nav__logo-text">MoneyWise<span>Hub</span></div></a>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="/#tools" class="nav__link active">Free Tools</a></li>
+        <li><a href="/#guides" class="nav__link">Guides</a></li>
+        <li><a href="/#reviews" class="nav__link">App Reviews</a></li>
+        <li><a href="/about.html" class="nav__link">About</a></li>
+        <li><a href="/#newsletter" class="nav__cta">Get Free Tips →</a></li>
+      </ul>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="article-page">
+      <div class="container container--narrow">
+        <div class="article-page__header">
+          <span class="article-page__tag">Free Tool</span>
+          <h1 class="article-page__title">Emergency Fund Calculator</h1>
+          <p style="color: var(--color-text-secondary); font-size: var(--text-lg); margin-top: var(--space-2);">
+            Find your target amount and see exactly how long it'll take to build your financial safety net.
+          </p>
+        </div>
+
+        <div class="calculator" id="savings-calculator">
+          <div class="calculator__form">
+            <div class="form-group">
+              <label for="monthly-expenses">Monthly Essential Expenses</label>
+              <div class="input-group">
+                <span class="input-group__prefix">$</span>
+                <input type="number" id="monthly-expenses" class="form-input form-input--currency" placeholder="2,500" min="0" step="100">
+              </div>
+              <span class="form-group__help">Rent, groceries, utilities, insurance, minimum debt payments, transportation.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="months-coverage">Months of Coverage You Want</label>
+              <div class="input-group">
+                <select id="months-coverage" class="form-input" style="cursor: pointer;">
+                  <option value="3">3 months (starter)</option>
+                  <option value="6" selected>6 months (recommended)</option>
+                  <option value="9">9 months (comfortable)</option>
+                  <option value="12">12 months (ultra-safe)</option>
+                </select>
+              </div>
+              <span class="form-group__help">Financial experts recommend 3-6 months. Freelancers should aim for 6-12.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="current-savings">Current Savings</label>
+              <div class="input-group">
+                <span class="input-group__prefix">$</span>
+                <input type="number" id="current-savings" class="form-input form-input--currency" placeholder="500" min="0" step="50" value="0">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="monthly-contribution">How Much Can You Save Monthly?</label>
+              <div class="input-group">
+                <span class="input-group__prefix">$</span>
+                <input type="number" id="monthly-contribution" class="form-input form-input--currency" placeholder="200" min="0" step="25">
+              </div>
+              <span class="form-group__help">Even $25/month makes a difference. Start small and increase over time.</span>
+            </div>
+
+            <button type="button" class="btn btn--primary" id="calculate-savings" style="width: 100%; margin-top: var(--space-2);">
+              Calculate My Fund →
+            </button>
+          </div>
+
+          <div class="calculator__results" id="savings-results">
+            <h3 style="text-align: center; margin-bottom: var(--space-6); font-size: var(--text-xl);">Your Emergency Fund Plan</h3>
+            
+            <div class="results-grid">
+              <div class="result-item">
+                <div class="result-item__label">🎯 Target Amount</div>
+                <div class="result-item__value" id="result-target" style="color: var(--color-secondary-light);">$0</div>
+              </div>
+              <div class="result-item">
+                <div class="result-item__label">📊 Still Need</div>
+                <div class="result-item__value" id="result-remaining" style="color: var(--color-accent);">$0</div>
+              </div>
+              <div class="result-item">
+                <div class="result-item__label">📅 Months to Goal</div>
+                <div class="result-item__value" id="result-months" style="color: var(--color-primary-light);">0</div>
+              </div>
+            </div>
+
+            <!-- Progress bar -->
+            <div style="margin-top: var(--space-6);">
+              <div style="display: flex; justify-content: space-between; font-size: var(--text-sm); margin-bottom: var(--space-2);">
+                <span style="font-weight: 600;">Progress</span>
+                <span id="result-percent" style="color: var(--color-primary); font-weight: 700;">0%</span>
+              </div>
+              <div style="width: 100%; height: 12px; background: var(--color-surface); border-radius: var(--radius-full); overflow: hidden;">
+                <div id="progress-bar" style="height: 100%; background: var(--color-primary-gradient); border-radius: var(--radius-full); transition: width 0.6s ease; width: 0%;"></div>
+              </div>
+            </div>
+
+            <div style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-5); margin-top: var(--space-6); text-align: center;">
+              <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-1);">📅 You'll reach your goal by</p>
+              <p style="font-size: var(--text-2xl); font-weight: 800; color: var(--color-primary); margin-bottom: 0;" id="result-date">—</p>
+            </div>
+
+            <div class="affiliate-cta" style="margin-top: var(--space-8);">
+              <h4 class="affiliate-cta__title">🏦 Grow your savings faster</h4>
+              <p class="affiliate-cta__text">A high-yield savings account earns 10-20x more interest than a regular account. SoFi offers 4.5% APY with no minimum balance.</p>
+              <a href="../articles/best-apps/sofi-review.html" class="btn btn--primary" id="affiliate-sofi-savings">Compare Savings Accounts →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-page__content" style="margin-top: var(--space-12);">
+          <h2>How Much Emergency Fund Do I Need?</h2>
+          <p>Most financial experts recommend saving <strong>3 to 6 months</strong> of essential expenses. Here's a quick guide:</p>
+          <ul>
+            <li><strong>3 months</strong> — If you have a stable job, dual income household, or low fixed expenses</li>
+            <li><strong>6 months</strong> — The gold standard for most people. Covers job loss, medical emergencies, car repairs</li>
+            <li><strong>9-12 months</strong> — Recommended if you're self-employed, freelance, have variable income, or are the sole earner</li>
+          </ul>
+
+          <h2>Where to Keep Your Emergency Fund</h2>
+          <p>Your emergency fund should be in a <strong>high-yield savings account (HYSA)</strong> — accessible when you need it, but earning interest while it sits there. Avoid investing your emergency fund in stocks — you need it liquid and safe.</p>
+
+          <div class="newsletter-inline" style="margin: var(--space-8) 0;">
+            <div class="newsletter-inline__icon">📚</div>
+            <div class="newsletter-inline__text">
+              <p class="newsletter-inline__title">Read the full guide</p>
+              <p class="newsletter-inline__desc"><a href="../articles/saving-money/how-to-build-emergency-fund.html">How to Build an Emergency Fund (Even If You Live Paycheck to Paycheck)</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border-top: none; padding-top: 0;">
+        <p>© 2026 MoneyWise Hub. All rights reserved.</p>
+        <p><a href="/" style="color: rgba(255,255,255,0.6);">Home</a> · <a href="../about.html" style="color: rgba(255,255,255,0.6);">About</a> · <a href="../disclaimer.html" style="color: rgba(255,255,255,0.6);">Affiliate Disclosure</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/calculators.js"></script>
+</body>
+</html>
