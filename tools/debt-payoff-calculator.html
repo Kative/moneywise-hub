@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Free Debt Payoff Calculator — Snowball vs Avalanche — MoneyWise Hub</title>
-  <meta name="description" content="Free debt payoff calculator. Compare the debt snowball vs avalanche method. See when you'll be debt-free and how much interest you'll save.">
+  <meta name="description"
+    content="Free debt payoff calculator. Compare the debt snowball vs avalanche method. See when you'll be debt-free and how much interest you'll save.">
   <meta property="og:title" content="Free Debt Payoff Calculator — MoneyWise Hub">
-  <meta property="og:description" content="Compare snowball vs avalanche debt payoff strategies. See your debt-free date instantly.">
+  <meta property="og:description"
+    content="Compare snowball vs avalanche debt payoff strategies. See your debt-free date instantly.">
   <link rel="canonical" href="https://moneywise-hub.github.io/tools/debt-payoff-calculator.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +20,7 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Debt Payoff Calculator",
-    "url": "https://moneywise-hub.github.io/tools/debt-payoff-calculator.html",
+    "url": "https://kative.github.io/moneywise-hub/tools/debt-payoff-calculator.html",
     "description": "Free debt payoff calculator comparing snowball vs avalanche methods. See your debt-free date and total interest paid.",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "Any",
@@ -25,19 +28,24 @@
   }
   </script>
 </head>
+
 <body>
-  <a href="#main" class="sr-only">Skip to main content</a>
+  <a href="/moneywise-hub/#main" class="sr-only">Skip to main content</a>
   <nav class="nav" id="navbar">
     <div class="nav__inner">
-      <a href="/" class="nav__logo"><div class="nav__logo-icon">💰</div><div class="nav__logo-text">MoneyWise<span>Hub</span></div></a>
+      <a href="/moneywise-hub" class="nav__logo">
+        <div class="nav__logo-icon">💰</div>
+        <div class="nav__logo-text">MoneyWise<span>Hub</span></div>
+      </a>
       <ul class="nav__links" id="nav-links">
-        <li><a href="/#tools" class="nav__link active">Free Tools</a></li>
-        <li><a href="/#guides" class="nav__link">Guides</a></li>
-        <li><a href="/#reviews" class="nav__link">App Reviews</a></li>
-        <li><a href="/about.html" class="nav__link">About</a></li>
-        <li><a href="/#newsletter" class="nav__cta">Get Free Tips →</a></li>
+        <li><a href="/moneywise-hub/#tools" class="nav__link active">Free Tools</a></li>
+        <li><a href="/moneywise-hub/#guides" class="nav__link">Guides</a></li>
+        <li><a href="/moneywise-hub/#reviews" class="nav__link">App Reviews</a></li>
+        <li><a href="/moneywise-hub/about.html" class="nav__link">About</a></li>
+        <li><a href="/moneywise-hub/#newsletter" class="nav__cta">Get Free Tips →</a></li>
       </ul>
-      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu"
+        aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
@@ -55,32 +63,39 @@
         <div class="calculator" id="debt-calculator">
           <div class="calculator__form">
             <div id="debts-container">
-              <div class="debt-entry" data-index="0" style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-5); margin-bottom: var(--space-4);">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-3);">
+              <div class="debt-entry" data-index="0"
+                style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-5); margin-bottom: var(--space-4);">
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-3);">
                   <strong style="font-size: var(--text-sm);">Debt #1</strong>
                 </div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3);">
                   <div class="form-group">
                     <label style="font-size: var(--text-xs);">Name</label>
-                    <input type="text" class="form-input debt-name" placeholder="Credit Card" style="font-size: var(--text-sm); padding: var(--space-2) var(--space-3);">
+                    <input type="text" class="form-input debt-name" placeholder="Credit Card"
+                      style="font-size: var(--text-sm); padding: var(--space-2) var(--space-3);">
                   </div>
                   <div class="form-group">
                     <label style="font-size: var(--text-xs);">Balance</label>
-                    <input type="number" class="form-input debt-balance" placeholder="5,000" min="0" style="font-size: var(--text-sm); padding: var(--space-2) var(--space-3);">
+                    <input type="number" class="form-input debt-balance" placeholder="5,000" min="0"
+                      style="font-size: var(--text-sm); padding: var(--space-2) var(--space-3);">
                   </div>
                   <div class="form-group">
                     <label style="font-size: var(--text-xs);">Interest Rate (%)</label>
-                    <input type="number" class="form-input debt-rate" placeholder="22.9" min="0" max="100" step="0.1" style="font-size: var(--text-sm); padding: var(--space-2) var(--space-3);">
+                    <input type="number" class="form-input debt-rate" placeholder="22.9" min="0" max="100" step="0.1"
+                      style="font-size: var(--text-sm); padding: var(--space-2) var(--space-3);">
                   </div>
                   <div class="form-group">
                     <label style="font-size: var(--text-xs);">Min Payment</label>
-                    <input type="number" class="form-input debt-min-payment" placeholder="150" min="0" style="font-size: var(--text-sm); padding: var(--space-2) var(--space-3);">
+                    <input type="number" class="form-input debt-min-payment" placeholder="150" min="0"
+                      style="font-size: var(--text-sm); padding: var(--space-2) var(--space-3);">
                   </div>
                 </div>
               </div>
             </div>
 
-            <button type="button" class="btn btn--ghost" id="add-debt" style="width: 100%; margin-bottom: var(--space-4);">
+            <button type="button" class="btn btn--ghost" id="add-debt"
+              style="width: 100%; margin-bottom: var(--space-4);">
               + Add Another Debt
             </button>
 
@@ -88,9 +103,11 @@
               <label for="extra-payment">Extra Monthly Payment (above minimums)</label>
               <div class="input-group">
                 <span class="input-group__prefix">$</span>
-                <input type="number" id="extra-payment" class="form-input form-input--currency" placeholder="200" min="0" step="25" value="100">
+                <input type="number" id="extra-payment" class="form-input form-input--currency" placeholder="200"
+                  min="0" step="25" value="100">
               </div>
-              <span class="form-group__help">This extra amount gets applied to one debt at a time (the "target" debt).</span>
+              <span class="form-group__help">This extra amount gets applied to one debt at a time (the "target"
+                debt).</span>
             </div>
 
             <button type="button" class="btn btn--primary" id="calculate-debt" style="width: 100%;">
@@ -99,55 +116,88 @@
           </div>
 
           <div class="calculator__results" id="debt-results">
-            <h3 style="text-align: center; margin-bottom: var(--space-6); font-size: var(--text-xl);">Your Debt Payoff Comparison</h3>
-            
+            <h3 style="text-align: center; margin-bottom: var(--space-6); font-size: var(--text-xl);">Your Debt Payoff
+              Comparison</h3>
+
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
               <!-- Snowball -->
-              <div style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-5); text-align: center; border: 2px solid transparent;" id="snowball-card">
-                <p style="font-size: var(--text-sm); font-weight: 700; color: var(--color-secondary-light); margin-bottom: var(--space-2);">⛄ SNOWBALL</p>
-                <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin-bottom: var(--space-4);">Pay smallest balance first</p>
-                <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-1);">Debt-Free In</p>
-                <p style="font-size: var(--text-2xl); font-weight: 800; margin-bottom: var(--space-3);" id="snowball-months">— months</p>
-                <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-1);">Total Interest</p>
-                <p style="font-size: var(--text-xl); font-weight: 700; color: var(--color-danger);" id="snowball-interest">$0</p>
+              <div
+                style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-5); text-align: center; border: 2px solid transparent;"
+                id="snowball-card">
+                <p
+                  style="font-size: var(--text-sm); font-weight: 700; color: var(--color-secondary-light); margin-bottom: var(--space-2);">
+                  ⛄ SNOWBALL</p>
+                <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin-bottom: var(--space-4);">Pay
+                  smallest balance first</p>
+                <p
+                  style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-1);">
+                  Debt-Free In</p>
+                <p style="font-size: var(--text-2xl); font-weight: 800; margin-bottom: var(--space-3);"
+                  id="snowball-months">— months</p>
+                <p
+                  style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-1);">
+                  Total Interest</p>
+                <p style="font-size: var(--text-xl); font-weight: 700; color: var(--color-danger);"
+                  id="snowball-interest">$0</p>
               </div>
-              
+
               <!-- Avalanche -->
-              <div style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-5); text-align: center; border: 2px solid transparent;" id="avalanche-card">
-                <p style="font-size: var(--text-sm); font-weight: 700; color: var(--color-primary-light); margin-bottom: var(--space-2);">🏔️ AVALANCHE</p>
-                <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin-bottom: var(--space-4);">Pay highest interest first</p>
-                <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-1);">Debt-Free In</p>
-                <p style="font-size: var(--text-2xl); font-weight: 800; margin-bottom: var(--space-3);" id="avalanche-months">— months</p>
-                <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-1);">Total Interest</p>
-                <p style="font-size: var(--text-xl); font-weight: 700; color: var(--color-danger);" id="avalanche-interest">$0</p>
+              <div
+                style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-5); text-align: center; border: 2px solid transparent;"
+                id="avalanche-card">
+                <p
+                  style="font-size: var(--text-sm); font-weight: 700; color: var(--color-primary-light); margin-bottom: var(--space-2);">
+                  🏔️ AVALANCHE</p>
+                <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin-bottom: var(--space-4);">Pay
+                  highest interest first</p>
+                <p
+                  style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-1);">
+                  Debt-Free In</p>
+                <p style="font-size: var(--text-2xl); font-weight: 800; margin-bottom: var(--space-3);"
+                  id="avalanche-months">— months</p>
+                <p
+                  style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-1);">
+                  Total Interest</p>
+                <p style="font-size: var(--text-xl); font-weight: 700; color: var(--color-danger);"
+                  id="avalanche-interest">$0</p>
               </div>
             </div>
 
-            <div id="savings-comparison" style="background: rgba(34, 197, 94, 0.05); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: var(--radius-lg); padding: var(--space-5); margin-top: var(--space-6); text-align: center;">
-              <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-1);">💡 The avalanche method saves you</p>
-              <p style="font-size: var(--text-3xl); font-weight: 800; color: var(--color-primary); margin-bottom: 0;" id="interest-saved">$0</p>
-              <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 0;">in interest payments</p>
+            <div id="savings-comparison"
+              style="background: rgba(34, 197, 94, 0.05); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: var(--radius-lg); padding: var(--space-5); margin-top: var(--space-6); text-align: center;">
+              <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-1);">
+                💡 The avalanche method saves you</p>
+              <p style="font-size: var(--text-3xl); font-weight: 800; color: var(--color-primary); margin-bottom: 0;"
+                id="interest-saved">$0</p>
+              <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 0;">in interest
+                payments</p>
             </div>
 
             <div class="affiliate-cta" style="margin-top: var(--space-8);">
               <h4 class="affiliate-cta__title">💡 Automate your debt payoff</h4>
-              <p class="affiliate-cta__text">Apps like YNAB and SoFi can automatically apply your debt payoff strategy and track your progress.</p>
-              <a href="../articles/debt-freedom/debt-snowball-vs-avalanche.html" class="btn btn--primary" id="affiliate-debt-guide">Read the Full Debt Guide →</a>
+              <p class="affiliate-cta__text">Apps like YNAB and SoFi can automatically apply your debt payoff strategy
+                and track your progress.</p>
+              <a href="../articles/debt-freedom/debt-snowball-vs-avalanche.html" class="btn btn--primary"
+                id="affiliate-debt-guide">Read the Full Debt Guide →</a>
             </div>
           </div>
         </div>
 
         <div class="article-page__content" style="margin-top: var(--space-12);">
           <h2>Snowball vs. Avalanche: Which Is Better?</h2>
-          <p><strong>Avalanche saves more money</strong> on interest. <strong>Snowball builds more motivation</strong> with quick wins. Mathematically, avalanche always wins. Psychologically, snowball often works better because people stay motivated.</p>
-          
-          <p>Our recommendation: <strong>Pick the one you'll actually stick with.</strong> A slightly less-optimal strategy you follow is infinitely better than a perfect strategy you abandon.</p>
+          <p><strong>Avalanche saves more money</strong> on interest. <strong>Snowball builds more motivation</strong>
+            with quick wins. Mathematically, avalanche always wins. Psychologically, snowball often works better because
+            people stay motivated.</p>
+
+          <p>Our recommendation: <strong>Pick the one you'll actually stick with.</strong> A slightly less-optimal
+            strategy you follow is infinitely better than a perfect strategy you abandon.</p>
 
           <div class="newsletter-inline" style="margin: var(--space-8) 0;">
             <div class="newsletter-inline__icon">📚</div>
             <div class="newsletter-inline__text">
               <p class="newsletter-inline__title">Deep dive</p>
-              <p class="newsletter-inline__desc"><a href="../articles/debt-freedom/debt-snowball-vs-avalanche.html">Debt Snowball vs. Avalanche: Which Method Gets You Debt-Free Faster?</a></p>
+              <p class="newsletter-inline__desc"><a href="../articles/debt-freedom/debt-snowball-vs-avalanche.html">Debt
+                  Snowball vs. Avalanche: Which Method Gets You Debt-Free Faster?</a></p>
             </div>
           </div>
         </div>
@@ -159,7 +209,9 @@
     <div class="container">
       <div class="footer__bottom" style="border-top: none; padding-top: 0;">
         <p>© 2026 MoneyWise Hub. All rights reserved.</p>
-        <p><a href="/" style="color: rgba(255,255,255,0.6);">Home</a> · <a href="../about.html" style="color: rgba(255,255,255,0.6);">About</a> · <a href="../disclaimer.html" style="color: rgba(255,255,255,0.6);">Affiliate Disclosure</a></p>
+        <p><a href="/moneywise-hub" style="color: rgba(255,255,255,0.6);">Home</a> · <a href="/moneywise-hub/about.html"
+            style="color: rgba(255,255,255,0.6);">About</a> · <a href="/moneywise-hub/disclaimer.html"
+            style="color: rgba(255,255,255,0.6);">Affiliate Disclosure</a></p>
       </div>
     </div>
   </footer>
@@ -167,4 +219,5 @@
   <script src="../js/main.js"></script>
   <script src="../js/calculators.js"></script>
 </body>
+
 </html>

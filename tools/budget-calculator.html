@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Free 50/30/20 Budget Calculator — MoneyWise Hub</title>
-  <meta name="description" content="Free 50/30/20 budget calculator. Enter your monthly income and instantly see how to split it between needs, wants, and savings. No signup required.">
+  <meta name="description"
+    content="Free 50/30/20 budget calculator. Enter your monthly income and instantly see how to split it between needs, wants, and savings. No signup required.">
   <meta property="og:title" content="Free 50/30/20 Budget Calculator — MoneyWise Hub">
-  <meta property="og:description" content="Enter your income and get a clear budget breakdown in seconds. Based on the proven 50/30/20 rule.">
+  <meta property="og:description"
+    content="Enter your income and get a clear budget breakdown in seconds. Based on the proven 50/30/20 rule.">
   <meta property="og:type" content="website">
   <link rel="canonical" href="https://moneywise-hub.github.io/tools/budget-calculator.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +21,7 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "50/30/20 Budget Calculator",
-    "url": "https://moneywise-hub.github.io/tools/budget-calculator.html",
+    "url": "https://kative.github.io/moneywise-hub/tools/budget-calculator.html",
     "description": "Free online 50/30/20 budget calculator. Enter your monthly income and get an instant breakdown of needs, wants, and savings.",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "Any",
@@ -26,18 +29,22 @@
   }
   </script>
 </head>
+
 <body>
-  <a href="#main" class="sr-only">Skip to main content</a>
+  <a href="/moneywise-hub/#main" class="sr-only">Skip to main content</a>
 
   <nav class="nav" id="navbar">
     <div class="nav__inner">
-      <a href="/" class="nav__logo"><div class="nav__logo-icon">💰</div><div class="nav__logo-text">MoneyWise<span>Hub</span></div></a>
+      <a href="/moneywise-hub" class="nav__logo">
+        <div class="nav__logo-icon">💰</div>
+        <div class="nav__logo-text">MoneyWise<span>Hub</span></div>
+      </a>
       <ul class="nav__links" id="nav-links">
-        <li><a href="/#tools" class="nav__link active">Free Tools</a></li>
-        <li><a href="/#guides" class="nav__link">Guides</a></li>
-        <li><a href="/#reviews" class="nav__link">App Reviews</a></li>
-        <li><a href="/about.html" class="nav__link">About</a></li>
-        <li><a href="/#newsletter" class="nav__cta">Get Free Tips →</a></li>
+        <li><a href="/moneywise-hub/#tools" class="nav__link active">Free Tools</a></li>
+        <li><a href="/moneywise-hub/#guides" class="nav__link">Guides</a></li>
+        <li><a href="/moneywise-hub/#reviews" class="nav__link">App Reviews</a></li>
+        <li><a href="/moneywise-hub/about.html" class="nav__link">About</a></li>
+        <li><a href="/moneywise-hub/#newsletter" class="nav__cta">Get Free Tips →</a></li>
       </ul>
       <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -63,57 +70,71 @@
               <label for="monthly-income">Monthly Take-Home Pay (After Tax)</label>
               <div class="input-group">
                 <span class="input-group__prefix">$</span>
-                <input type="number" id="monthly-income" class="form-input form-input--currency" placeholder="3,500" min="0" step="100" aria-describedby="income-help">
+                <input type="number" id="monthly-income" class="form-input form-input--currency" placeholder="3,500"
+                  min="0" step="100" aria-describedby="income-help">
               </div>
-              <span class="form-group__help" id="income-help">Enter the amount you actually receive in your bank account each month.</span>
+              <span class="form-group__help" id="income-help">Enter the amount you actually receive in your bank account
+                each month.</span>
             </div>
 
-            <button type="button" class="btn btn--primary" id="calculate-budget" style="width: 100%; margin-top: var(--space-2);">
+            <button type="button" class="btn btn--primary" id="calculate-budget"
+              style="width: 100%; margin-top: var(--space-2);">
               Calculate My Budget →
             </button>
           </div>
 
           <!-- Results -->
           <div class="calculator__results" id="budget-results">
-            <h3 style="text-align: center; margin-bottom: var(--space-6); font-size: var(--text-xl);">Your 50/30/20 Budget Breakdown</h3>
-            
+            <h3 style="text-align: center; margin-bottom: var(--space-6); font-size: var(--text-xl);">Your 50/30/20
+              Budget Breakdown</h3>
+
             <!-- Visual Bar -->
             <div class="budget-bar" id="budget-bar" role="img" aria-label="Budget breakdown bar chart">
               <div class="budget-bar__segment budget-bar__segment--needs" id="bar-needs" style="width: 50%;">50%</div>
               <div class="budget-bar__segment budget-bar__segment--wants" id="bar-wants" style="width: 30%;">30%</div>
-              <div class="budget-bar__segment budget-bar__segment--savings" id="bar-savings" style="width: 20%;">20%</div>
+              <div class="budget-bar__segment budget-bar__segment--savings" id="bar-savings" style="width: 20%;">20%
+              </div>
             </div>
 
             <div class="results-grid">
               <div class="result-item result-item--needs">
                 <div class="result-item__label">🏠 Needs (50%)</div>
                 <div class="result-item__value" id="result-needs">$0</div>
-                <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 4px; margin-bottom: 0;">Rent, groceries, utilities, insurance, minimum debt payments</p>
+                <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 4px; margin-bottom: 0;">Rent,
+                  groceries, utilities, insurance, minimum debt payments</p>
               </div>
               <div class="result-item result-item--wants">
                 <div class="result-item__label">🎮 Wants (30%)</div>
                 <div class="result-item__value" id="result-wants">$0</div>
-                <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 4px; margin-bottom: 0;">Dining out, entertainment, shopping, subscriptions, hobbies</p>
+                <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 4px; margin-bottom: 0;">Dining
+                  out, entertainment, shopping, subscriptions, hobbies</p>
               </div>
               <div class="result-item result-item--savings">
                 <div class="result-item__label">💰 Savings (20%)</div>
                 <div class="result-item__value" id="result-savings">$0</div>
-                <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 4px; margin-bottom: 0;">Emergency fund, retirement, extra debt payments, investments</p>
+                <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 4px; margin-bottom: 0;">
+                  Emergency fund, retirement, extra debt payments, investments</p>
               </div>
             </div>
 
             <!-- Annual projection -->
-            <div style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-5); margin-top: var(--space-6); text-align: center;">
-              <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-1);">💡 At this rate, you'll save</p>
-              <p style="font-size: var(--text-3xl); font-weight: 800; color: var(--color-primary); margin-bottom: var(--space-1);" id="result-annual-savings">$0</p>
-              <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 0;">per year in savings alone!</p>
+            <div
+              style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-5); margin-top: var(--space-6); text-align: center;">
+              <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-1);">
+                💡 At this rate, you'll save</p>
+              <p style="font-size: var(--text-3xl); font-weight: 800; color: var(--color-primary); margin-bottom: var(--space-1);"
+                id="result-annual-savings">$0</p>
+              <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 0;">per year in
+                savings alone!</p>
             </div>
 
             <!-- Affiliate CTA -->
             <div class="affiliate-cta" style="margin-top: var(--space-8);">
               <h4 class="affiliate-cta__title">📱 Want to automate your budget?</h4>
-              <p class="affiliate-cta__text">YNAB makes the 50/30/20 rule effortless. It automatically tracks your spending and tells you exactly where every dollar should go.</p>
-              <a href="../articles/best-apps/best-free-budgeting-apps-2026.html" class="btn btn--primary" id="affiliate-ynab-calc">Compare Budgeting Apps →</a>
+              <p class="affiliate-cta__text">YNAB makes the 50/30/20 rule effortless. It automatically tracks your
+                spending and tells you exactly where every dollar should go.</p>
+              <a href="../articles/best-apps/best-free-budgeting-apps-2026.html" class="btn btn--primary"
+                id="affiliate-ynab-calc">Compare Budgeting Apps →</a>
             </div>
           </div>
         </div>
@@ -121,26 +142,36 @@
         <!-- Content below calculator -->
         <div class="article-page__content" style="margin-top: var(--space-12);">
           <h2>What Is the 50/30/20 Rule?</h2>
-          <p>The 50/30/20 rule is the simplest budgeting framework that actually works. Popularized by Senator Elizabeth Warren in her book <em>All Your Worth</em>, it divides your after-tax income into three categories:</p>
-          
+          <p>The 50/30/20 rule is the simplest budgeting framework that actually works. Popularized by Senator Elizabeth
+            Warren in her book <em>All Your Worth</em>, it divides your after-tax income into three categories:</p>
+
           <ul>
-            <li><strong>50% for Needs</strong> — Essential expenses you can't avoid: rent/mortgage, groceries, utilities, insurance, minimum debt payments, transportation.</li>
-            <li><strong>30% for Wants</strong> — Non-essential spending that makes life enjoyable: dining out, entertainment, shopping, subscriptions, hobbies, vacations.</li>
-            <li><strong>20% for Savings</strong> — Paying your future self: emergency fund, retirement contributions, extra debt payments, investments.</li>
+            <li><strong>50% for Needs</strong> — Essential expenses you can't avoid: rent/mortgage, groceries,
+              utilities, insurance, minimum debt payments, transportation.</li>
+            <li><strong>30% for Wants</strong> — Non-essential spending that makes life enjoyable: dining out,
+              entertainment, shopping, subscriptions, hobbies, vacations.</li>
+            <li><strong>20% for Savings</strong> — Paying your future self: emergency fund, retirement contributions,
+              extra debt payments, investments.</li>
           </ul>
 
           <h2>How to Use This Calculator</h2>
           <ol>
-            <li><strong>Find your take-home pay</strong> — This is the amount deposited into your bank account after taxes, benefits, and deductions. Check your latest pay stub.</li>
-            <li><strong>Enter the number above</strong> — If you get paid biweekly, multiply one paycheck by 2. If weekly, multiply by 4.</li>
-            <li><strong>Review your breakdown</strong> — The calculator shows exactly how much to allocate to each category.</li>
-            <li><strong>Adjust as needed</strong> — The 50/30/20 split is a starting point. If your rent takes 60% of your income, adjust the other categories accordingly.</li>
+            <li><strong>Find your take-home pay</strong> — This is the amount deposited into your bank account after
+              taxes, benefits, and deductions. Check your latest pay stub.</li>
+            <li><strong>Enter the number above</strong> — If you get paid biweekly, multiply one paycheck by 2. If
+              weekly, multiply by 4.</li>
+            <li><strong>Review your breakdown</strong> — The calculator shows exactly how much to allocate to each
+              category.</li>
+            <li><strong>Adjust as needed</strong> — The 50/30/20 split is a starting point. If your rent takes 60% of
+              your income, adjust the other categories accordingly.</li>
           </ol>
 
           <h2>What If My Needs Exceed 50%?</h2>
-          <p>If you're spending more than 50% on needs, you're not alone — especially in high cost-of-living areas. Here's what to do:</p>
+          <p>If you're spending more than 50% on needs, you're not alone — especially in high cost-of-living areas.
+            Here's what to do:</p>
           <ul>
-            <li>Look for ways to reduce your biggest expenses (negotiate rent, refinance loans, shop for cheaper insurance)</li>
+            <li>Look for ways to reduce your biggest expenses (negotiate rent, refinance loans, shop for cheaper
+              insurance)</li>
             <li>Temporarily adjust to 60/20/20 or even 70/20/10 while you work on increasing your income</li>
             <li>Focus on one category at a time — small wins add up</li>
           </ul>
@@ -150,7 +181,9 @@
             <div class="newsletter-inline__icon">📚</div>
             <div class="newsletter-inline__text">
               <p class="newsletter-inline__title">Want the full guide?</p>
-              <p class="newsletter-inline__desc">Read our complete <a href="../articles/saving-money/50-30-20-rule-explained.html">50/30/20 Rule Explained</a> article for tips on making this budget work in the real world.</p>
+              <p class="newsletter-inline__desc">Read our complete <a
+                  href="../articles/saving-money/50-30-20-rule-explained.html">50/30/20 Rule Explained</a> article for
+                tips on making this budget work in the real world.</p>
             </div>
           </div>
         </div>
@@ -162,7 +195,9 @@
     <div class="container">
       <div class="footer__bottom" style="border-top: none; padding-top: 0;">
         <p>© 2026 MoneyWise Hub. All rights reserved.</p>
-        <p><a href="/" style="color: rgba(255,255,255,0.6);">Home</a> · <a href="../about.html" style="color: rgba(255,255,255,0.6);">About</a> · <a href="../disclaimer.html" style="color: rgba(255,255,255,0.6);">Affiliate Disclosure</a></p>
+        <p><a href="/moneywise-hub" style="color: rgba(255,255,255,0.6);">Home</a> · <a href="/moneywise-hub/about.html"
+            style="color: rgba(255,255,255,0.6);">About</a> · <a href="/moneywise-hub/disclaimer.html"
+            style="color: rgba(255,255,255,0.6);">Affiliate Disclosure</a></p>
       </div>
     </div>
   </footer>
@@ -170,4 +205,5 @@
   <script src="../js/main.js"></script>
   <script src="../js/calculators.js"></script>
 </body>
+
 </html>
