@@ -408,8 +408,17 @@
           <p class="cta-banner__text">Join our free weekly newsletter. One actionable money tip every Tuesday. No spam,
             no fluff — just stuff that works.</p>
           <form class="cta-banner__form" id="newsletter-form" action="#" method="POST">
-            <input type="email" class="cta-banner__input" id="newsletter-email" placeholder="Your email address"
-              required aria-label="Email address for newsletter">
+            <input type="email" class="cta-banner__input" name="EMAIL" id="newsletter-email"
+              placeholder="Your email address" required aria-label="Email address for newsletter">
+
+            <!-- Mailchimp tag -->
+            <input type="hidden" name="tags" value="8806282">
+
+            <!-- Honeypot bot protection — keep this hidden -->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+              <input type="text" name="b_8fd4bc4b505af10b3061e466c_648ec65dec" tabindex="-1" value="">
+            </div>
+
             <button type="submit" class="cta-banner__btn" id="newsletter-submit">Subscribe Free →</button>
           </form>
           <p class="text-center mt-4" style="opacity: 0.7; font-size: 0.8rem; position: relative; z-index: 1;">
