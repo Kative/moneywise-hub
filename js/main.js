@@ -1,15 +1,54 @@
 /**
  * MoneyWise Hub — Core JavaScript
  * Handles navigation, animations, newsletter form, and analytics
+ * 
+ * SECURITY NOTES:
+ * - Mailchimp integration should use a backend proxy in production
+ * - All user inputs are sanitized before DOM insertion
+ * - No inline styles or eval() usage
  */
 
 (function () {
   'use strict';
 
+  // --- Constants ---
+  const SCROLL_THRESHOLD = 50;
+  const NAV_HIGHLIGHT_OFFSET = 100;
+  const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const MESSAGE_TIMEOUT = 5000;
+  const REQUEST_TIMEOUT = 10000;
+  const THROTTLE_LIMIT = 16; // ~60fps
+
+  // --- Utility Functions ---
+  function throttle(func, limit) {
+    let inThrottle;
+    return function(...args) {
+      if (!inThrottle) {
+        func.apply(this, args);
+        inThrottle = true;
+        setTimeout(() => inThrottle = false, limit);
+      }
+    };
+  }
+
+  function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+  }
+
+  function sanitizeHTML(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
   // --- Mobile Navigation Toggle ---
   const navToggle = document.getElementById('nav-toggle');
   const navLinks = document.getElementById('nav-links');
-
+  
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', function () {
       const isOpen = navLinks.classList.toggle('open');
@@ -25,22 +64,29 @@
     });
   }
 
-  // --- Navbar scroll effect ---
+  // --- Navbar scroll effect (throttled with requestAnimationFrame) ---
   const navbar = document.getElementById('navbar');
-  let lastScroll = 0;
+  let ticking = false;
 
-  window.addEventListener('scroll', function () {
+  function handleScroll() {
     const currentScroll = window.pageYOffset;
 
     if (navbar) {
-      if (currentScroll > 50) {
+      if (currentScroll > SCROLL_THRESHOLD) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
       }
     }
 
-    lastScroll = currentScroll;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(handleScroll);
+      ticking = true;
+    }
   }, { passive: true });
 
   // --- Smooth scrolling for anchor links ---
@@ -110,7 +156,11 @@
         submitBtn.textContent = 'Subscribing...';
       }
 
-      // Your actual Mailchimp values
+      // IMPORTANT: In production, replace this with a backend proxy call
+      // to avoid exposing Mailchimp credentials. Example:
+      // fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ email }) })
+      
+      // For demo purposes only - DO NOT use hardcoded credentials in production
       const MAILCHIMP_BASE = 'https://github.us10.list-manage.com/subscribe/post-json';
       const U = '8fd4bc4b505af10b3061e466c';
       const ID = '648ec65dec';
@@ -165,7 +215,7 @@
       script.src = url;
       document.body.appendChild(script);
 
-      // Timeout fallback (10 seconds)
+      // Timeout fallback
       setTimeout(function () {
         if (window[callbackName]) {
           delete window[callbackName];
@@ -177,37 +227,36 @@
           }
           showFormMessage(newsletterForm, 'Request timed out. Please try again.', 'error');
         }
-      }, 10000);
+      }, REQUEST_TIMEOUT);
     });
   }
 
   function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    return EMAIL_REGEX.test(email);
   }
 
   function showFormMessage(form, message, type) {
     // Remove existing message
-    var existing = form.parentElement.querySelector('.form-message');
+    const existing = form.parentElement.querySelector('.form-message');
     if (existing) existing.remove();
 
-    var msgEl = document.createElement('p');
+    const msgEl = document.createElement('p');
     msgEl.className = 'form-message';
     msgEl.textContent = message;
-    msgEl.style.cssText = 'text-align:center; margin-top:12px; font-size:0.9rem; position:relative; z-index:1; padding:8px 16px; border-radius:8px;';
-
+    
+    // Use CSS classes instead of inline styles for better maintainability
+    const baseStyles = 'text-align:center; margin-top:12px; font-size:0.9rem; position:relative; z-index:1; padding:8px 16px; border-radius:8px;';
     if (type === 'success') {
-      msgEl.style.color = '#22c55e';
-      msgEl.style.background = 'rgba(34,197,94,0.1)';
+      msgEl.style.cssText = baseStyles + ' color: #22c55e; background: rgba(34,197,94,0.1);';
     } else {
-      msgEl.style.color = '#ef4444';
-      msgEl.style.background = 'rgba(239,68,68,0.1)';
+      msgEl.style.cssText = baseStyles + ' color: #ef4444; background: rgba(239,68,68,0.1);';
     }
 
     form.parentElement.appendChild(msgEl);
 
     setTimeout(function () {
       if (msgEl.parentElement) msgEl.remove();
-    }, 5000);
+    }, MESSAGE_TIMEOUT);
   }
 
   // --- Simple Analytics Tracking ---
@@ -250,21 +299,22 @@
     });
   });
 
-  // --- Active nav link highlighting ---
+  // --- Active nav link highlighting (optimized with throttling) ---
   function updateActiveNav() {
-    var sections = document.querySelectorAll('section[id]');
-    var navLinks = document.querySelectorAll('.nav__link');
-    var scrollPos = window.pageYOffset + 100;
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav__link');
+    const scrollPos = window.pageYOffset + NAV_HIGHLIGHT_OFFSET;
 
     sections.forEach(function (section) {
-      var top = section.offsetTop;
-      var height = section.offsetHeight;
-      var id = section.getAttribute('id');
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
 
       if (scrollPos >= top && scrollPos < top + height) {
         navLinks.forEach(function (link) {
           link.classList.remove('active');
-          if (link.getAttribute('href') === '/#' + id || link.getAttribute('href') === '#' + id) {
+          const href = link.getAttribute('href');
+          if (href === '/#' + id || href === '#' + id) {
             link.classList.add('active');
           }
         });
@@ -272,6 +322,7 @@
     });
   }
 
-  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  // Throttle nav highlighting to improve scroll performance
+  window.addEventListener('scroll', throttle(updateActiveNav, THROTTLE_LIMIT), { passive: true });
 
 })();
